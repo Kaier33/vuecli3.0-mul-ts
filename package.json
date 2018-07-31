@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "postcss-px2rem-exclude": "0.0.6",
     "vue": "^2.5.16",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
@@ -19,7 +21,6 @@
     "@vue/cli-service": "^3.0.0-rc.10",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
-    "px2rem-loader": "^0.1.9",
     "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.16"
   }
