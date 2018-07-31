@@ -1,5 +1,5 @@
 # v_ts
-1. add px2rem-loader
+1. postcss-px2rem-exclude 用于转换 (配置和注意事项具体看vue.config.js)
 
 
 ## Project setup
