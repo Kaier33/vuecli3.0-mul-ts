@@ -33,24 +33,29 @@
   </div>
 </template>
 <script lang='ts'>
-import { Vue, Component } from 'vue-property-decorator';
-import '../assets/css/common.less';
-import 'swiper/dist/css/swiper.css';
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import { Vue, Component } from "vue-property-decorator";
+import "../assets/css/common.less";
+import "swiper/dist/css/swiper.css";
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import appMixins from "../assets/ts/appMixins";
 declare global {
-  interface Window { $: any; jQuery: any; }
+  interface Window {
+    $: any;
+    jQuery: any;
+  }
 }
 
 @Component({
-  name: 'Home',
+  name: "Home",
   components: { swiper, swiperSlide },
+  mixins: [appMixins],
 })
 export default class Home extends Vue {
-  public msg: string = 'Mua~';
+  public msg: string = "Mua~";
   private swiperOption: object = {
     loop: true,
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
     },
   };
 
@@ -64,16 +69,15 @@ export default class Home extends Vue {
     alert(`oh~~~~~ ${this.msg}`);
   }
   public testJQ(): void {
-    window.jQuery('#test').html('我是JQ改的啦');
+    window.jQuery("#test").html("我是JQ改的啦");
   }
 
   // lifecycle
   public mounted() {
-    console.log(this);
+    // console.log(this);
     console.log(window);
   }
 }
-
 </script>
 <style scoped lang='less'>
 .box {

@@ -1,7 +1,7 @@
 // import bridge from '@/assets/js/bridge.js'; // 引入桥
 /* eslint-disable */
 
-import { isObject, urlencode ,urlEncodeX} from './util'
+import { isObject, urlencode, } from './util'
 import { isApp } from './env'
 
 
@@ -90,20 +90,4 @@ export function nativeGo (_viewName, _params) { // _params == obj ; _viewName ==
   }
   execute(temp); console.log(temp); console.log('跳转: ', _viewName, _params)
 }
-export function nativeWatchUser (_params) {
-  if (!isApp) { return }
-  let temp = 'dgtle4://nativeWatchUser/' + urlencode(_params)
-  execute(temp); console.log(temp); console.log('关注用户: ', _params)
-}
 
-export function nativeViewUser (_params) {
-  if (!isApp) { return }
-  let temp = 'dgtle4://nativeViewUser/' + urlencode(_params)
-  execute(temp); console.log(temp); console.log('查看用户: ', _params)
-}
-
-export function nativeViewTags (_params) {
-  if (!isApp) { return }
-  let temp = 'dgtle4://nativeViewTags/' + urlencode(_params)
-  execute(temp); console.log(temp); console.log('查看标签: ', _params)
-}
