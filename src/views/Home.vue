@@ -28,14 +28,18 @@
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
+    <div id="test" @click="testJQ">我是原本的哦</div>
 
   </div>
 </template>
 <script lang='ts'>
-import { Vue, Component} from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 import '../assets/css/common.less';
 import 'swiper/dist/css/swiper.css';
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
+declare global {
+  interface Window { $: any; jQuery: any; }
+}
 
 @Component({
   name: 'Home',
@@ -49,13 +53,24 @@ export default class Home extends Vue {
       el: '.swiper-pagination',
     },
   };
+
   // computed
   get MSG(): string {
     return `give you ${this.msg}`;
   }
+
   // methods
   public sayMua(): void {
     alert(`oh~~~~~ ${this.msg}`);
+  }
+  public testJQ(): void {
+    window.jQuery('#test').html('我是JQ改的啦');
+  }
+
+  // lifecycle
+  public mounted() {
+    console.log(this);
+    console.log(window);
   }
 }
 

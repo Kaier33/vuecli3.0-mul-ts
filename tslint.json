@@ -18,6 +18,8 @@
     "no-consecutive-blank-lines": false,
     "no-trailing-whitespace": false,
     "no-var-keyword": false,
-    "comment-format": false
+    "comment-format": false,
+    "no-console": [false],
+    "only-arrow-functions": [false]
   }
 }

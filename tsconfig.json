@@ -11,7 +11,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "node"
+      "node",
     ],
     "typeRoots": [
       // add path to @types
