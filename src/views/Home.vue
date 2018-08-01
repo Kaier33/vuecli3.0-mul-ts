@@ -4,19 +4,61 @@
     <div class="box">box</div>
     <div class="test"> testbos</div>
     <br>
-    <br>
     <div class="line"></div>
     <br>
     <img src="../assets/images/logo.png">
+    <br>
+    <br>
+    <p>{{MSG}}</p>
+    <br>
+    <button @click="sayMua">戳我啊ლ(′◉❥◉｀ლ)</button>
+    <br>
+    <br>
+    <div id="homeSwiper">
+      <swiper :options="swiperOption">
+        <!-- slides -->
+        <swiper-slide>I'm Slide 1</swiper-slide>
+        <swiper-slide>I'm Slide 2</swiper-slide>
+        <swiper-slide>I'm Slide 3</swiper-slide>
+        <swiper-slide>I'm Slide 4</swiper-slide>
+        <swiper-slide>I'm Slide 5</swiper-slide>
+        <swiper-slide>I'm Slide 6</swiper-slide>
+        <swiper-slide>I'm Slide 7</swiper-slide>
+        <!-- Optional controls -->
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+
   </div>
 </template>
-<script>
+<script lang='ts'>
+import { Vue, Component} from 'vue-property-decorator';
 import '../assets/css/common.less';
-export default {
-  data() {
-    return {};
-  },
-};
+import 'swiper/dist/css/swiper.css';
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+
+@Component({
+  name: 'Home',
+  components: { swiper, swiperSlide },
+})
+export default class Home extends Vue {
+  public msg: string = 'Mua~';
+  private swiperOption: object = {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  };
+  // computed
+  get MSG(): string {
+    return `give you ${this.msg}`;
+  }
+  // methods
+  public sayMua(): void {
+    alert(`oh~~~~~ ${this.msg}`);
+  }
+}
+
 </script>
 <style scoped lang='less'>
 .box {
@@ -29,5 +71,11 @@ export default {
   height: 220px; /*no*/
   background-color: pink;
   font-size: 20px;
+}
+#homeSwiper .swiper-slide {
+  height: 100px;
+}
+#homeSwiper /deep/ .swiper-pagination-bullet {
+  background: pink;
 }
 </style>
