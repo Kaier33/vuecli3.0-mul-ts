@@ -5,22 +5,14 @@ declare module '*.vue' {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $xxx: any, //预留
-  }
-  interface window {
-    $: any,
-    jQuery:any
+    $xxx: any; //预留
   }
 }
 
 declare module 'vue-awesome-swiper' {
-  export const swiper: any
-  export const swiperSlide: any
+  export const swiper: any;
+  export const swiperSlide: any;
 }
-
-
-// declare module 'jquery';
-
 
 
 

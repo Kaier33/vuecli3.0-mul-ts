@@ -29,29 +29,29 @@
       </swiper>
     </div>
     <div id="test" @click="testJQ">我是原本的哦</div>
+    <br>
+    <p id="ellipsis2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloremque nesciunt voluptate explicabo consectetur velit quibusdam in. Cum quam ipsum atque eligendi quos reiciendis provident asperiores placeat corporis dicta voluptatum libero laudantium quidem iste voluptatem aut deleniti quisquam delectus, quia nam ipsa fugit dignissimos perspiciatis. Necessitatibus, praesentium. Harum hic eum atque nam quas quidem, id alias at non dolores, officiis inventore molestiae recusandae tempora exercitationem? Et eum facere soluta dolore? Iure eum expedita odio molestias eius unde veritatis cumque nemo, error architecto sint optio dolorem non omnis blanditiis ex voluptate, consequuntur dicta quis. Delectus, facere excepturi ipsa modi fugit in.</p>
 
   </div>
 </template>
 <script lang='ts'>
-import { Vue, Component } from "vue-property-decorator";
-import "../assets/css/common.less";
+import { Vue, Component, Mixins } from "vue-property-decorator";
+import "../assets/css/common_ignore.less";
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import appMixins from "../assets/ts/appMixins";
+
+// 其实不需要声明,只是不这样的话 在vscode下有个红线看着不爽罢了
 declare global {
-  interface Window {
-    $: any;
-    jQuery: any;
-  }
+  export const $: any;
 }
 
 @Component({
   name: "Home",
   components: { swiper, swiperSlide },
-  mixins: [appMixins],
 })
-export default class Home extends Vue {
-  public msg: string = "Mua~";
+export default class Home extends Mixins(appMixins) {
+  msg: string = "Mua~";
   private swiperOption: object = {
     loop: true,
     pagination: {
@@ -65,17 +65,17 @@ export default class Home extends Vue {
   }
 
   // methods
-  public sayMua(): void {
-    alert(`oh~~~~~ ${this.msg}`);
+  sayMua(): void {
+    console.log(`oh~~~~~ ${this.msg}`);
   }
-  public testJQ(): void {
-    window.jQuery("#test").html("我是JQ改的啦");
+  testJQ(): void {
+    $("#test").html("我是JQ改的啦");
   }
 
   // lifecycle
-  public mounted() {
+  mounted() {
     // console.log(this);
-    console.log(window);
+    // console.log(window);
   }
 }
 </script>

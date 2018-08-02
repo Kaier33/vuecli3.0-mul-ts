@@ -20,6 +20,9 @@
     "no-var-keyword": false,
     "comment-format": false,
     "no-console": [false],
-    "only-arrow-functions": [false]
+    "only-arrow-functions": [false],
+    "no-shadowed-variable": false,
+    "forin": true,
+    "member-access": [true, "no-public"]
   }
 }

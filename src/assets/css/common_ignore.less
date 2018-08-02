@@ -1,0 +1,32 @@
+// 注意这个文件不会经过rem转换
+.line {
+    width: 100%;
+    border: 1px solid transparent;
+    /*no*/
+    border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='2px'%3E%3Crect fill='%23708090' width='100%25' height='50%25'/%3E%3C/svg%3E") 2 2 stretch;
+    /*no*/
+}
+
+#ellipsis4 {
+    display: -webkit-box;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+#ellipsis3 {
+    display: -webkit-box;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+#ellipsis2 {
+    display: -webkit-box;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
