@@ -35,16 +35,17 @@
   </div>
 </template>
 <script lang='ts'>
-import { Vue, Component, Mixins } from "vue-property-decorator";
-import "../assets/css/common_ignore.less";
-import "swiper/dist/css/swiper.css";
-import { swiper, swiperSlide } from "vue-awesome-swiper";
-import appMixins from "../assets/ts/appMixins";
+const $ = require("jquery");  //配合webpack
+import { Vue, Component, Mixins } from 'vue-property-decorator';
+import '../assets/css/common_ignore.less';
+import 'swiper/dist/css/swiper.css';
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import appMixins from '../assets/ts/appMixins';
 
 // 其实不需要声明,只是不这样的话 在vscode下有个红线看着不爽
-declare global {
-  export const $: any;
-}
+// declare global {
+//     export const $: any;
+// }
 
 @Component({
   name: "Home",
@@ -74,7 +75,9 @@ export default class Home extends Mixins(appMixins) {
 
   // lifecycle
   mounted() {
-    // console.log(this);
+    // console.log((this.$router as any).options.routes);
+    // console.log(this.$router.options);
+    console.log(this.$router.options);
     // console.log(window);
   }
 }

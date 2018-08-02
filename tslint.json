@@ -18,6 +18,7 @@
     "no-consecutive-blank-lines": false,
     "no-trailing-whitespace": false,
     "no-var-keyword": false,
+    "no-var-requires": false,
     "comment-format": false,
     "no-console": [false],
     "only-arrow-functions": [false],

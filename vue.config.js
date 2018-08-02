@@ -43,5 +43,9 @@ module.exports = {
             chunkFilename: 'css/[name].[contenthash].css',
         },
     },
-    configureWebpack: {},
+    configureWebpack: {
+        externals: {
+            jquery: 'jQuery',
+        }
+    },
 }

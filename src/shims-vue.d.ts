@@ -5,16 +5,21 @@ declare module '*.vue' {
 }
 
 // 为一些没有.d.ts的插件做声明
-declare module 'vue-awesome-swiper' { 
+declare module 'vue-awesome-swiper' {
   export const swiper: any;
   export const swiperSlide: any;
 }
 
 declare module 'vue/types/vue' {
+  import { Route } from 'vue-router';
+  import VueRouter from 'vue-router';
   interface Vue {
-    $xxx: any; //为$ref预留,
+    $router: VueRouter,
+    $route: Route
   }
 }
+
+
 
 
 
