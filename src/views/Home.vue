@@ -41,7 +41,7 @@ import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import appMixins from "../assets/ts/appMixins";
 
-// 其实不需要声明,只是不这样的话 在vscode下有个红线看着不爽罢了
+// 其实不需要声明,只是不这样的话 在vscode下有个红线看着不爽
 declare global {
   export const $: any;
 }

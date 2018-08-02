@@ -6,31 +6,42 @@
         <p v-if="screeningList.length==0 || loadOver " class="loadOver">已加载完所有内容</p>
     </div>
 </template>
-<script>
-// import appMixins from "@/assets/js/appMixins.js";
-// import ResultList from "@/components/screening/ScreeningResultsList";
-// export default {
-//   components: { ResultList },
-//   name: "screeningResults",
-//   mixins: [appMixins],
-//   data() {
-//     return {
-//       screeningList: [0, 1, 2],
-//       loadOver: false
-//     };
-//   },
-//   methods: {
-//     // 上拉加载更多
-//     loadMore(data) {
-//       if (data.length == 0) {
-//         this.loadOver = true;
-//       } else {
-//         this.screeningList.concat(data);
-//       }
-//     }
-//   },
-//   mounted() {}
-// };
+<script lang='ts'>
+// asset
+import appMixins from '@/assets/ts/appMixins';
+import ResultList from '@/components/screening/ScreeningResultsList.vue';
+
+// library
+import { Vue, Component, Mixins } from "vue-property-decorator";
+
+@Component({
+    name: "screeningResults",
+    components: { ResultList },
+})
+export default class ScreeningResults extends Mixins(appMixins) {
+    // initData
+    private loadOver: boolean = false;
+    private screeningList: object[] = [{ a: 1 }, { b: 2 }, { c: 2 }];
+
+    // computed
+    get count(): number {
+        return 233;
+    }
+
+    // methods
+    private loadMore<T>(data: T[]): void {
+        if (data.length === 0) {
+            this.loadOver = true;
+        } else {
+            this.screeningList.concat(data);
+        }
+    }
+
+    // lifecycle
+    private mounted() {
+        // console.log(window);
+    }
+}
 </script>
 
 <style scoped lang='less'>
