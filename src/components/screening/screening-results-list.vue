@@ -1,10 +1,10 @@
 <template>
-    <div class="screening_item">
+    <div class="screening-item">
         <img src="http://i4.article.fd.zol-img.com.cn/g5/M00/04/03/ChMkJlpgPuGISF3iAAFxP3ckvFkAAkLfgGYMngAAXFX214.jpg">
-        <div class="car_info">
-            <p class="carName">Model X（进口）</p>
-            <p class="price">87.39 - 138.12万</p>
-            <p class='type'>共 3 个车型 续航：507KM</p>
+        <div class="info">
+            <p class="info__carName">Model X（进口）</p>
+            <p class="info__price">87.39 - 138.12万</p>
+            <p class='info__type'>共 3 个车型 续航：507KM</p>
         </div>
     </div>
 </template>
@@ -17,28 +17,30 @@ export default class ScreeningResultsList extends Vue { }
 </script>
 
 <style scoped lang='less'>
-.screening_item {
+.screening-item {
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
+
   width: 100%;
   img {
     display: block;
+
+    margin-right: 20px;
     width: 110px;
     height: 70px;
-    margin-right: 20px;
   }
-  .car_info {
-    .carName {
-      font-size: 15px;
+  .info {
+    .info__carName {
       margin-bottom: 4px;
+      font-size: 15px;
     }
-    .price {
-      font-size: 14px;
-      color: #f5a623;
+    .info__price {
       margin-bottom: 11px;
+      color: #f5a623;
+      font-size: 14px;
     }
-    .type {
+    .info__type {
       font-size: 10px;
       color: #858585;
     }

@@ -7,28 +7,27 @@
     </div>
 </template>
 <script lang='ts'>
-// asset
-import appMixins from '@/assets/ts/appMixins';
-import ResultList from '@/components/screening/ScreeningResultsList.vue';
+import appMixins from '@/assets/ts/mixins';
+import ResultList from '@/components/screening/screening-results-list.vue';
 
-// library
 import { Vue, Component, Mixins } from "vue-property-decorator";
-
 @Component({
     name: "screeningResults",
     components: { ResultList },
 })
 export default class ScreeningResults extends Mixins(appMixins) {
-    // initData
+
     private loadOver: boolean = false;
     private screeningList: object[] = [{ a: 1 }, { b: 2 }, { c: 2 }];
 
-    // computed
     get count(): number {
         return 233;
     }
 
-    // methods
+    private mounted() {
+        // console.log(window);
+    }
+
     private loadMore<T>(data: T[]): void {
         if (data.length === 0) {
             this.loadOver = true;
@@ -36,20 +35,15 @@ export default class ScreeningResults extends Mixins(appMixins) {
             this.screeningList.concat(data);
         }
     }
-
-    // lifecycle
-    private mounted() {
-        // console.log(window);
-    }
 }
 </script>
 
 <style scoped lang='less'>
 .container {
+  box-sizing: border-box;
   position: relative;
   padding: 0 15px;
   width: 100%;
-  box-sizing: border-box;
 }
 .mb20 {
   margin-bottom: 20px;

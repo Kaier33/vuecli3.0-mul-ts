@@ -36,12 +36,12 @@ export default function(g: any) {
         Object.assign(vm, data);
       },
 
-       /**
-        * App调用组件内的方法  
-        * @param  {string} vmName       组件name
-        * @param  {string} methodName    组件方法名
-        * @param  {string} data          APP传过来的数据
-        */
+      /**
+       * App调用组件内的方法  
+       * @param  {string} vmName       组件name
+       * @param  {string} methodName    组件方法名
+       * @param  {string} data          APP传过来的数据
+       */
       callMethod(vmName: any, methodName: any, data: any) {
         const vm = vms[vmName];
         vm[methodName](data);
@@ -83,8 +83,8 @@ export function nativeOpenBrowser(url: string) {
  * @param params   要传递的参数
  */
 interface NativeGoArg {
-  viewName: string;    
-  params: object;  
+  viewName: string;
+  params: object;
 }
 export function nativeGo(parameter: NativeGoArg) {
   if (!isApp) { return; }

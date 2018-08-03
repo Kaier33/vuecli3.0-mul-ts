@@ -105,14 +105,14 @@
 
 <style scoped lang='less'>
 .container {
-  font-size: 20px;
   padding: 10px;
+
+  font-size: 20px;
 }
 h1 {
   color: skyblue;
 }
 .ios {
-  /* Rectangle 2: */
   background-image: linear-gradient(-180deg, #90f2e5 0%, #57e1c7 100%);
   box-shadow: 0 0 30px 0 rgba(87, 225, 199, 0.3);
   border-radius: 100px;
@@ -123,10 +123,12 @@ h1 {
   border-radius: 100px;
 }
 button {
-  font-size: 16px;
   width: 200px;
   height: 40px;
+
+  font-size: 16px;
   border-radius: 8px;
+  
   color: #fff;
 }
 

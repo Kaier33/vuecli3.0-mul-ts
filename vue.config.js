@@ -1,7 +1,7 @@
 const glob = require('glob');
 const px2rem = require('postcss-px2rem-exclude'); // post 转换rem 插件
 const autoprefixer = require('autoprefixer');     // 添加后缀 , 因为下面设置的会覆盖原本的, 所以重新引入
-let pagesConf = {                                 // 需要一个index
+let pagesConf = {                                 // 必须得有一个index
     'index': {
         entry: 'src/main.ts',
         template: 'public/index_jq.html',
@@ -32,10 +32,10 @@ module.exports = {
     css: {
         loaderOptions: {
             postcss: {
-                plugins: [px2rem({                                 //启动rem转换
+                plugins: [px2rem({                                 // 启动rem转换
                     remUnit: 37.5,
                     exclude: ['src/assets/css/common_ignore.less'] // 可以单独指定文件, 也可以使用 /*no*/ 去忽略某一行
-                }), autoprefixer]
+                }), autoprefixer]                                  // 重新启用 autoprefixer
             },
         },
         extract: {                                                 //让样式归类到css文件夹下面

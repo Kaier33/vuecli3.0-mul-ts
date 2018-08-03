@@ -1,7 +1,3 @@
-export const emptyObject = Object.freeze({});
-// export function creMap(){
-//   return Object.create(null);
-// }
 // 用ts,这些基本用不到的
 
 export function type(Anything: any) {

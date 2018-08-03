@@ -8,7 +8,7 @@
     </div>
 </template>
 <script>
-import "../../assets/css/ellipsis.css";
+import "../../assets/css/common-ignore.less";
 </script>
 <style lang='less' scoped>
 .articleItem {

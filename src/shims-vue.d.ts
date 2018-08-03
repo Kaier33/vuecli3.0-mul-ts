@@ -1,3 +1,4 @@
+
 // ts识别vue
 declare module '*.vue' {
   import Vue from 'vue';
@@ -10,14 +11,16 @@ declare module 'vue-awesome-swiper' {
   export const swiperSlide: any;
 }
 
-declare module 'vue/types/vue' {
-  import { Route } from 'vue-router';
-  import VueRouter from 'vue-router';
-  interface Vue {
-    $router: VueRouter,
-    $route: Route
-  }
-}
+// declare module 'vue/types/vue' {
+//   import { Route } from 'vue-router';
+//   import VueRouter from 'vue-router';
+//   interface Vue {
+//     $router: VueRouter;
+//     $route: Route;
+//   }
+// }
+
+
 
 
 
