@@ -1,6 +1,6 @@
 // 百科的 文章样式
 <template>
-    <div class="articleItem">
+    <div class="article-item">
         <div class="icon"></div>
         <div class="info">
             <div class="title" id="ellipsis2">出行情报局 | 特斯拉 Model 3 产能恢复 或 2019 年开始asdasdasdad国内交付</div>
@@ -9,9 +9,10 @@
     </div>
 </template>
 <script>
+export default {};
 </script>
 <style lang='less' scoped>
-.articleItem {
+.article-item {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;

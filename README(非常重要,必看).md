@@ -20,7 +20,7 @@
     ├── shims-vue.d.ts              // 声明文件
 ├── babel.config.js                 // preset 记录
 ├── package.json                    // 依赖
-├── README.md                       // 爱读不读
+├── README.md                       // 爱看不看~
 ├── tsconfig.json                   // ts 配置
 ├── tslint.json                     // tslint 配置
 └── vue.config.js                   // webpack 配置  
@@ -53,22 +53,22 @@ import { Vue, Component, } from "vue-property-decorator";
 export default class HelloWorld extends Vue {
   initStr: string = '初始数据'                              // 3 初始数据,声明
 
-  @Prop({ type: [ Number, String ], default: 16 })        // 4 props
+  @Prop({ type: [ Number, String ], default: 16 })         // 4 props
                                        
-  @Watch('count')                                         // 5 watch   
+  @Watch('count')                                          // 5 watch   
   onWatchCount (val: number) {
     console.log('onWatchCount', val)
   }
      
-  // computed                                             // 6 计算属性
+  // computed                                              // 6 计算属性
   get styles () {}
   
-  // lifecycle                                            // 7 生命周期
+  // lifecycle                                             // 7 生命周期
   created () {}
   mounted () {}
   destroyed () {}
 
-  // methods                                              // 8 各个方法放在最后
+  // methods                                               // 8 各个方法放在最后
   getCityWeather (city: string) {}
 }
 </script>

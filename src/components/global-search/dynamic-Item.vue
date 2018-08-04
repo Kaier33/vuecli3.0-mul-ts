@@ -1,19 +1,19 @@
 <template>
-    <div class="groupDynamic">
+    <div class="group-dynamic">
         <!-- 顶部用户信息 -->
-        <div class="userInfo">
+        <div class="user-info">
             <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3744872283,1870099043&fm=27&gp=0.jpg">
             <p class="username">Victoria</p>
             <p class="time">2018-2-5</p>
         </div>
         <!-- 内容区域 -->
-        <div class="dynamicContentBox mb20">
+        <div class="dynamic-content-box mb20">
             <!-- 文本 -->
-            <p class="dynamicContent">
+            <p class="dynamic-content">
                 model 3 今天给预约了的老车主参观，趁着有时间就过去看啦，感觉还不错。 大雄，作业交完了😁😁不要嫌我文笔差哈……
             </p>
             <!-- 图片 -->
-            <div class="imgList">
+            <div class="img-list">
                 <ul>
                     <li></li>
                     <li></li>
@@ -27,11 +27,12 @@
     </div>
 </template>
 <script>
+export default {};
 </script>
 <style lang='less' scoped>
-.groupDynamic {
+.group-dynamic {
   // 用户信息
-  .userInfo {
+  .user-info {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -56,17 +57,17 @@
     }
   }
   // 内容区域
-  .dynamicContentBox {
+  .dynamic-content-box {
     width: 100%;
     padding: 10px;
     background: #fafafa;
     // 文本
-    .dynamicContent {
+    .dynamic-content {
       font-size: 13px;
       color: #333333;
     }
     // 图片列表
-    .imgList {
+    .img-list {
       position: relative;
       top: 0;
       ul {

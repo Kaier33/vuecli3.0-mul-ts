@@ -17,18 +17,18 @@ import { Vue, Component, Mixins } from "vue-property-decorator";
 })
 export default class ScreeningResults extends Mixins(appMixins) {
 
-    private loadOver: boolean = false;
-    private screeningList: object[] = [{ a: 1 }, { b: 2 }, { c: 2 }];
+    loadOver: boolean = false;
+    screeningList: object[] = [{ a: 1 }, { b: 2 }, { c: 2 }];
 
     get count(): number {
         return 233;
     }
 
-    private mounted() {
+    mounted() {
         // console.log(window);
     }
 
-    private loadMore<T>(data: T[]): void {
+    loadMore<T>(data: T[]): void {
         if (data.length === 0) {
             this.loadOver = true;
         } else {

@@ -2,53 +2,61 @@
 <template>
     <div class="container">
         <!-- 品牌车系 -->
-        <!-- <div class="carlistBox mb30">
+        <div class="carlist-box mb30">
             <CommonTop class="mb30" />
             <CarList v-for="(item,index) in screeningList" :key="index" class="mb20" />
-        </div> -->
+        </div>
 
         <!-- 小组动态 -->
-        <!-- <div class="grouplistBox mb30">
+        <div class="grouplist-box mb30">
             <CommonTop class="mb30" />
             <GroupDynamicItem />
-        </div> -->
+        </div>
 
         <!-- 文章 -->
-        <!-- <div class="articleBox mb30">
+        <div class="article-box mb30">
             <CommonTop class="mb30" />
             <ArticleItem v-for="(item,index) in [0,1,2]" :key='index' class="mb40" />
-        </div> -->
+        </div>
 
         <!-- notice -->
-        <!-- <p v-if="loadOver" class="loadOver">已加载完所有内容</p> -->
+        <p v-if="loadOver" class="load-over">已加载完所有内容</p>
 
-        <!-- <br> -->
     </div>
 </template>
-<script>
-// import "../../assets/css/ellipsis.css";
-// import appMixins from "@/assets/js/appMixins.js";
-// import CommonTop from "../../components/globalSearch/searchTop.vue"; //公共顶部
-// import CarList from "@/components/screening/ScreeningResultsList"; //车系列表
-// import GroupDynamicItem from "../../components/globalSearch/dynamic_Item.vue"; //小组动态
-// import ArticleItem from "../../components/globalSearch/article_Item.vue"; //文章列表
+<script lang='ts'>
+import appMixins from "@/assets/ts/mixins";
+import CommonTop from "@/components/global-search/search-top.vue"; //公共顶部
+import GroupDynamicItem from "@/components/global-search/dynamic-item.vue"; //小组动态
+import ArticleItem from "@/components/global-search/article-item.vue"; //文章列表
+import CarList from "@/components/screening/screening-results-list.vue"; //车系列表
 
-// export default {
-//   components: { CarList, CommonTop, ArticleItem, GroupDynamicItem },
-//   name: "screeningResults",
-//   mixins: [appMixins],
-//   data() {
-//     return {
-//       screeningList: [0, 1, 2],
-//       loadOver: false
-//     };
-//   },
-//   methods: {
-//     // 上拉加载更多
-//     loadMore(data) {}
-//   },
-//   mounted() {}
-// };
+import { Vue, Component, Mixins } from "vue-property-decorator";
+
+@Component({
+  name: "GlobalSearch",
+  components: { CommonTop, CarList, GroupDynamicItem, ArticleItem },
+})
+export default class GlobalSearch extends Mixins(appMixins) {
+  loadOver: boolean = false;
+  screeningList: object[] = [{ a: 1 }, { b: 2 }, { c: 2 }];
+
+  get count(): number {
+    return 233;
+  }
+
+  mounted() {
+    // console.log(window);
+  }
+
+  loadMore<T>(data: T[]): void {
+    if (data.length === 0) {
+      this.loadOver = true;
+    } else {
+      this.screeningList.concat(data);
+    }
+  }
+}
 </script>
 
 <style scoped lang='less'>
@@ -68,13 +76,13 @@
 .mb40 {
   margin-bottom: 40px;
 }
-.loadOver {
+.load-over {
   text-align: center;
   color: #c6c6c6;
 }
 
 // 品牌车系
-// .carlistBox {
+// .carlist-box {
 // }
 
 .groupDynamic {

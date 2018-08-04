@@ -24,6 +24,9 @@
     "only-arrow-functions": [false],
     "no-shadowed-variable": false,
     "forin": true,
-    "member-access": [true, "no-public"]
+    "member-access": [true, "no-public"],
+    "max-line-length": false,
+    "one-variable-per-declaration": false,
+    "trailing-comma": false
   }
 }

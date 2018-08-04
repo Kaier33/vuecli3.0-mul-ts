@@ -9,6 +9,7 @@
 </template>
 <script>
 import "../../assets/css/common-ignore.less";
+export default {};
 </script>
 <style lang='less' scoped>
 .articleItem {

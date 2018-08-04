@@ -8,23 +8,23 @@
         <div class="container">
 
             <!-- 顶部信息 -->
-            <div class="topInfo">
+            <div class="top-info">
                 <div class="title">
-                    <p>{{this.cyclopediaType[0].title1}}</p>
+                    <p>{{this.resData.cyclopediaType[0].title1}}</p>
                     <p>更新至 23 期</p>
                 </div>
                 <!-- 固定内容 -->
-                <p class="constant1"> {{this.cyclopediaType[0].title2}} </p>
-                <p class="constant2"> {{this.cyclopediaType[0].title3}} </p>
+                <p class="constant1"> {{this.resData.cyclopediaType[0].title2}} </p>
+                <p class="constant2"> {{this.resData.cyclopediaType[0].title3}} </p>
             </div>
 
-            <onePxLine />
+            <div class="one-px-line"></div>
 
             <!-- article list -->
-            <ArticleItem v-for="(item,index) in [0,1,2,3,4]" :key="index" class="mt30" />
+            <ArticleItem v-for="(item,index) in resData.articleList" :key="index" class="mt30" />
 
             <!-- notice -->
-            <div v-if="loadOver " class="loadOver">
+            <div v-if="loadOver " class="load-over">
                 <div class="line mt30 mb20"></div>
                 <p class="mb20">已加载完所有内容</p>
             </div>
@@ -32,54 +32,55 @@
     </div>
 
 </template>
-<script>
-// import appMixins from "@/assets/js/appMixins.js";
-// import ArticleItem from "../../components/encyclopedia/article_item.vue"; // 文章
-// import onePxLine from "../../components/common/onePxLine.vue"; // 1px Line
-// export default {
-//   components: { ArticleItem, onePxLine },
-//   name: "screeningResults",
-//   mixins: [appMixins],
-//   data() {
-//     return {
-//       screeningList: [0, 1, 2],
-//       loadOver: false,
-//       cyclopediaType: [
-//         {
-//           title1: "出行情报局",
-//           title2: "记录报道车事详情，剖析政策优惠，收集分享行业情报信息。",
-//           title3: "解读优惠政策 事件记录跟踪"
-//         },
-//         {
-//           title1: "新能源小窍门",
-//           title2: "科普电动汽车使用小窍门，教你怎么选车购车更省钱。",
-//           title3: "新能源车 实用科普导购"
-//         },
-//         {
-//           title1: "新出行试车",
-//           title2: "新出行第一视角体验新车，更快速、更专业。",
-//           title3: "快速解析 秒懂车系"
-//         }
-//       ],
-//       resData: {},
-//       dataList: []
-//     };
-//   },
-//   methods: {
-//     getData(data) {
-//       this.dataList = data;
-//     },
-//     // 上拉加载更多
-//     loadMore(data) {
-//       if (data.length == 0) {
-//         this.loadOver = true;
-//       } else {
-//         this.dataList = this.dataList.concat(data);
-//       }
-//     }
-//   },
-//   mounted() {}
-// };
+<script lang='ts'>
+import "../../assets/css/common-ignore.less";
+import appMixins from "@/assets/ts/mixins";
+import ArticleItem from "@/components/encyclopedia/article-item.vue"; // 文章
+
+import { Vue, Component, Mixins } from "vue-property-decorator";
+@Component({
+  name: "Encyclopedia",
+  components: { ArticleItem }
+})
+export default class Encyclopedia extends Mixins(appMixins) {
+  loadOver: boolean = false;
+  resData: object = {
+    articleList: [{ a: 1 }, { b: 2 }, { c: 2 }],
+    cyclopediaType: [
+      {
+        title1: "出行情报局",
+        title2: "记录报道车事详情，剖析政策优惠，收集分享行业情报信息。",
+        title3: "解读优惠政策 事件记录跟踪"
+      },
+      {
+        title1: "新能源小窍门",
+        title2: "科普电动汽车使用小窍门，教你怎么选车购车更省钱。",
+        title3: "新能源车 实用科普导购"
+      },
+      {
+        title1: "新出行试车",
+        title2: "新出行第一视角体验新车，更快速、更专业。",
+        title3: "快速解析 秒懂车系"
+      }
+    ]
+  };
+
+  mounted() {
+    // console.log(window);
+  }
+
+  getData(data: {}): void {
+    this.resData = Object.assign({}, data);
+  }
+
+  loadMore(data = { item: [] }): void {
+    if (data.item.length === 0) {
+      this.loadOver = true;
+    } else {
+      (this.resData as any).articleList.concat(data);
+    }
+  }
+}
 </script>
 
 <style scoped lang='less'>
@@ -90,12 +91,13 @@
   width: 100%;
   height: 230px;
 }
+
 .container {
   position: relative;
   padding: 0 15px;
   width: 100%;
   box-sizing: border-box;
-  .topInfo {
+  .top-info {
     .title {
       display: flex;
       flex-wrap: nowrap;
@@ -135,8 +137,7 @@
 .mb20 {
   margin-bottom: 20px;
 }
-
-.loadOver {
+.load-over {
   text-align: center;
   color: #c6c6c6;
 }

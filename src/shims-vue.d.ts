@@ -11,6 +11,9 @@ declare module 'vue-awesome-swiper' {
   export const swiperSlide: any;
 }
 
+declare let $: (any: string) => any;
+
+
 // declare module 'vue/types/vue' {
 //   import { Route } from 'vue-router';
 //   import VueRouter from 'vue-router';

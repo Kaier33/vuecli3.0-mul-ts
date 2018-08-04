@@ -35,47 +35,48 @@
     </div>
 </template>
 <script lang='ts'>
-const $ = require("jquery");  //配合webpack
-import { Vue, Component, Mixins } from 'vue-property-decorator';
-import '../assets/css/common-ignore.less';
-import 'swiper/dist/css/swiper.css';
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
-import appMixins from '../assets/ts/mixins';
+// const $ = require("jquery");  //配合webpack
+
+import { Vue, Component, Mixins } from "vue-property-decorator";
+import "../assets/css/common-ignore.less";
+import "swiper/dist/css/swiper.css";
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import appMixins from "../assets/ts/mixins";
 
 @Component({
-    name: "Home",
-    components: { swiper, swiperSlide },
+  name: "Home",
+  components: { swiper, swiperSlide },
 })
 export default class Home extends Mixins(appMixins) {
-    msg: string = "Mua~";
-    private swiperOption: object = {
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-        },
-    };
+  msg: string = "Mua~";
+  swiperOption: object = {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  };
 
-    // computed
-    get MSG(): string {
-        return `give you ${this.msg}`;
-    }
+  // computed
+  protected get MSG(): string {
+    return `give you ${this.msg}`;
+  }
 
-    // lifecycle
-    mounted() {
-        // console.log((this.$router as any).options.routes);
-        // console.log(this.$router.options);
-        console.log(this.$route);
-        console.log(((this.$router as any).options));
-        // console.log(window);
-    }
+  // lifecycle
+  mounted() {
+    // console.log((this.$router as any).options.routes);
+    // console.log(this.$router.options);
+    console.log(this.$route);
+    console.log((this.$router as any).options);
+    // console.log(window);
+  }
 
-    // methods
-    sayMua(): void {
-        console.log(`oh~~~~~ ${this.msg}`);
-    }
-    testJQ(): void {
-        $("#test").html("我是JQ改的啦");
-    }
+  // methods
+  sayMua(): void {
+    console.log(`oh~~~~~ ${this.msg}`);
+  }
+  testJQ(): void {
+    $("#test").html("我是JQ改的啦");
+  }
 }
 </script>
 <style scoped lang='less'>
