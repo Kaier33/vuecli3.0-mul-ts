@@ -11,12 +11,8 @@ declare module 'vue-awesome-swiper' {
   export const swiperSlide: any;
 }
 
-<<<<<<< Updated upstream
 declare let $: (any: string) => any;
 
-=======
-// declare let $:any;
->>>>>>> Stashed changes
 
 // declare module 'vue/types/vue' {
 //   import { Route } from 'vue-router';
