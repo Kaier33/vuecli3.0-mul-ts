@@ -85,8 +85,7 @@ npm run lint 会修复一些简单的错误格式,以及提示还有哪些代码
    + 中文注释 // 文字前面要加个空格
    + vue文件统一缩进为4个制表符  
 
-tslint报错具体会告诉你哪个书写不规范,根据提示信息改就行了;  
-
+tslint报错具体会告诉你哪里书写不规范,根据提示信息改就行了;  
 
 
 **CSS命名规范**
@@ -122,7 +121,7 @@ tslint报错具体会告诉你哪个书写不规范,根据提示信息改就行�
     width: 100px;
     height: 100px;
 
-    font: normal 13px "Helvetica Neue", sans-serif;     //字体 、对齐
+    font: normal 13px "Helvetica Neue", sans-serif;     // 字体 、对齐
     line-height: 1.5;
     text-align: center;
 
@@ -139,6 +138,7 @@ tslint报错具体会告诉你哪个书写不规范,根据提示信息改就行�
 2. 对于不需要的转换rem的, 单行属性可以在后面加 /*no*/ , 整个文件可以在vue.config中的css->loaderOptions->postcss->plugins->exclude中指定某个文件
 3. 某些外部插件没有.d.ts文件的,自己在shims-vue.d.t中声明
 4. ...
+
 
 ## Project setup
 ```
