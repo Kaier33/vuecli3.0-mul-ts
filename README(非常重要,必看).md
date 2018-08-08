@@ -137,7 +137,7 @@ tslint报错具体会告诉你哪个书写不规范,根据提示信息改就行�
 ## 其他事项说明  
 1. 样式直接照设计稿的px写就可以了 ; postcss-px2rem-exclude 会自动转换rem 
 2. 对于不需要的转换rem的, 单行属性可以在后面加 /*no*/ , 整个文件可以在vue.config中的css->loaderOptions->postcss->plugins->exclude中指定某个文件
-3. 某些外部插件没有.d.ts文件的,自己在shims-vue.d.ts中声明
+3. 某些外部插件没有.d.ts文件的,自己在shims-vue.d.t中声明
 4. ...
 
 ## Project setup

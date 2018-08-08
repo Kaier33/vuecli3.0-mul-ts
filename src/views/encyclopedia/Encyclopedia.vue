@@ -69,7 +69,7 @@ export default class Encyclopedia extends Mixins(appMixins) {
     // console.log(window);
   }
 
-  getData(data: {}): void {
+  getData(data: {}) {
     this.resData = Object.assign({}, data);
   }
 
