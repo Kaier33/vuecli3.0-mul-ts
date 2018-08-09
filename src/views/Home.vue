@@ -48,6 +48,7 @@ import { swiper, swiperSlide } from "vue-awesome-swiper";
 import appMixins from "../assets/ts/mixins";
 import Test from "../components/test.vue";
 import { resolve } from 'url';
+import { type } from '@/assets/ts/util';
 
 @Component({
   name: "Home",
@@ -106,32 +107,41 @@ export default class Home extends Mixins(appMixins) {
 
     
     // promise
-    interface FetchArg {
-       <T>(url: string, parms?: T): Promise<Response>;
-    }
-    // type test = <T>(url: string) => Promise<Response>;
-    const startFetch: FetchArg = <T>(url: string, parms?: T): Promise<Response> => {
-      return fetch(url)
-        .then((res) => res.json())
-        .then((res) => {
-          return res;
-        });
-    };
+    // interface FetchArg {
+    //    <T>(url: string, parms?: T): Promise<Response>;
+    // }
+    // // type test = <T>(url: string) => Promise<Response>;
+    // const startFetch: FetchArg = <T>(url: string, parms?: T): Promise<Response> => {
+    //   return fetch(url)
+    //     .then((res) => res.json())
+    //     .then((res) => {
+    //       return res;
+    //     });
+    // };
 
+  
     // const myFetch: (url: string) => Promise<Response> = function(url: string): Promise<Response> {
-    const myFetch: (url: string) => Promise<Response> = (url: string): Promise<Response> => {
-      return fetch(url)
+    // type FetchArg = {url: string, param?: object}; 
+    // interface FetchArg {
+    //   (url: string): Promise<Response>;
+    // }
+
+    type FetchArg = <T>(url: string, param?: T) => Promise<Response>;
+    let myFetch: FetchArg;
+    myFetch = function(src): Promise<Response> {
+      return fetch(src)
         .then((res) => res.json())
         .then((res) => {
           return res;
-        });
+        })
+        .catch((err) => console.log(err));
     };
     myFetch('https://5b05a3968be5840014ce463b.mockapi.io/api/v1/record').then((res) => {
       console.log(res);
     });
 
     //async
-    const firPromise: (ms: number) => Promise<string> = function(ms: number): Promise<string> {
+    const firPromise: (ms: number) => Promise<string> = (ms: number): Promise<string> => {
       return new Promise((resolve) => {
         setTimeout(resolve, ms , "Mua");
       });
@@ -143,7 +153,6 @@ export default class Home extends Mixins(appMixins) {
       return str + res;
     }
     myAsync();
-
   }
 
   // methods
@@ -153,6 +162,17 @@ export default class Home extends Mixins(appMixins) {
   testJQ(): void {
     $("#test").html("我是JQ改的啦");
   }
+
+  identityT<T>(arg: T): T {
+    const temp: T = arg;
+    return temp;
+  }
+
+  identity<T>(arg: T): object {
+    return { a: arg };
+  }
+
+
 }
 </script>
 <style scoped lang='less'>
