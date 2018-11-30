@@ -1,7 +1,7 @@
 # v_ts
-[TypeScript文档](https://www.tslang.cn/docs/home.html)  
-[TSLint规范](https://palantir.github.io/tslint/rules/)  
-[TS_Vue装饰器写法](https://github.com/kaorun343/vue-property-decorator#propoptions-propoptions--constructor--constructor---decorator)
+[TypeScript文档](https://www.tslang.cn/docs/home.html)    
+[TS Lint规范](https://palantir.github.io/tslint/rules/)    
+[TS VUE 装饰器写法](https://github.com/kaorun343/vue-property-decorator#propoptions-propoptions--constructor--constructor---decorator)
 
 ## 目录结构说明
 ```catalog  
